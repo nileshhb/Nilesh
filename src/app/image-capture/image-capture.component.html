@@ -1,0 +1,13 @@
+<div class="camera-container">
+    <h2>Capture and Upload Profile Image</h2>
+  
+    <webcam [trigger]="triggerObservable" (imageCapture)="handleImage($event)"></webcam>
+    <button (click)="triggerSnapshot()">Capture Image</button>
+
+    <div *ngIf="webcamImage">
+      <h3>Preview:</h3>
+      <img *ngIf="webcamImage.imageAsDataUrl" [src]="webcamImage.imageAsDataUrl" class="preview-image" />
+      <button (click)="uploadImage()">Upload Image</button>
+    </div>
+  </div>
+  

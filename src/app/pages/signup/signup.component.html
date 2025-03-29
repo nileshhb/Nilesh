@@ -1,0 +1,26 @@
+<form [formGroup]="signupForm" (ngSubmit)="signup()">
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" id="name" class="form-control" formControlName="name">
+    </div>
+      
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" id="email" class="form-control" formControlName="email">
+    </div>
+  
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" id="password" class="form-control" formControlName="password">
+    </div>
+
+    <div class="mb-3">
+        <label for="role" class="form-label">Select Role:</label>
+        <select id="role" class="form-control" formControlName="role">
+            <option value="admin">Admin</option>
+            <option value="supervisor">Supervisor</option>
+            <option value="worker">Worker</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-success">Submit</button>
+</form>

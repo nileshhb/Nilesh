@@ -1,0 +1,7 @@
+<nav class="navbar navbar-dark bg-dark p-2">
+    <a class="navbar-brand" (click)="home()">User Management</a>
+    <div>
+        <button *ngIf="isHomePage()" class="btn btn-outline-light me-2" (click)="navigateToLogin()">Login</button>
+    </div>
+  </nav>
+  

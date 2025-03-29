@@ -1,0 +1,55 @@
+<h2>User List</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Role</th>
+      <th>Image</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <!-- Editable Name Input -->
+      <td>
+        <input [(ngModel)]="user.name" class="form-control form-control-sm">
+      </td>
+
+      <!-- Editable Email Input -->
+      <td>
+        <input [(ngModel)]="user.email" class="form-control form-control-sm">
+      </td>
+
+      <!-- Role Dropdown -->
+      <td>
+        <select  *ngIf="user.role !== 'admin'" [(ngModel)]="user.role" class="form-control form-control-sm">
+          <option value="supervisor">Supervisor</option>
+          <option value="worker">Worker</option>
+        </select>
+      </td>
+
+      <!-- Profile Image -->
+      <td>
+        <img *ngIf="user.profileImage" [src]="getUserProfileImage(user._id)" alt="Profile Image" width="50">
+      </td>
+
+      <!-- Action Buttons -->
+      <td>
+        <button *ngIf="user.role !== 'admin'" class="btn btn-primary btn-sm" (click)="updateUser(user)">
+          Update
+        </button>
+        <button *ngIf="user.role !== 'admin'" class="btn btn-danger btn-sm" (click)="deleteUser(user._id)">
+          Delete
+        </button>
+      </td>
+     
+    </tr>
+  </tbody>
+</table>
+<tr *ngFor="let user of users">
+  <button class="btn btn-secondary mt-3" *ngIf="user.role === 'admin'" (click)="createUser()"> Create new user </button>
+</tr><br>
+<button class="btn btn-secondary mt-3" (click)="logout()">
+  Log-out
+</button>
